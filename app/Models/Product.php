@@ -5,20 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Order extends Model
+class Product extends Model
 {
     use HasFactory;
 
     protected static $unguarded = true;
 
-    public function product(): BelongsTo
+    public function orders(): HasMany
     {
-        return $this->belongsTo(Product::class);
+        return $this->hasMany(Order::class);
     }
 
-    public function status(): BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(Category::class);
     }
 }
