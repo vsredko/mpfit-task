@@ -32,9 +32,9 @@ class OrderController extends Controller
 
     public function store(StoreOrderRequest $request): RedirectResponse
     {
-       Order::create($request->orderAttributes());
+        Order::create($request->orderAttributes());
 
-       return redirect()->route('orders.index');
+        return redirect()->route('orders.index');
     }
 
     public function edit(Order $order): View
