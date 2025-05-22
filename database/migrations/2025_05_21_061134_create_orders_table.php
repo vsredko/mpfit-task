@@ -21,8 +21,8 @@ return new class extends Migration
             $table->foreignIdFor(Status::class)
                 ->default(DB::table('statuses')->where('name', 'Новый')->value('id'))
                 ->constrained();
-            $table->foreignIdFor(Product::class)->constrained();
-            $table->integer('quantity');
+            $table->foreignIdFor(Product::class)->constrained()->cascadeOnDelete();
+            $table->integer('count');
             $table->decimal('total_price');
             $table->string('comment')->nullable();
             $table->timestamps();

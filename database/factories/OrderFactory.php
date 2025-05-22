@@ -18,13 +18,13 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         $product = Product::factory()->create();
-        $quantity = $this->faker->numberBetween(1, 10);
+        $count = $this->faker->numberBetween(1, 10);
 
         return [
             'customer_name' => $this->faker->name(),
             'product_id' => $product->id,
-            'quantity' => $quantity,
-            'total_price' => $product->price * $quantity,
+            'count' => $count,
+            'total_price' => $product->price * $count,
             'comment' => $this->faker->randomElement([null, $this->faker->text()]),
         ];
     }
